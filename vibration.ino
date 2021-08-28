@@ -3,11 +3,12 @@
 #define ON 1
 #define OFF 0
 
-int vibration_Sensor = A5, buzz = 6, present_condition = 0, previous_condition = 0;
+int vibration_Sensor = 2, buzz = A4, present_condition = 0, previous_condition = 0;
 
 void setup() {
-  pinMode(vibration_Sensor, INPUT);
+  Serial.begin(9600);
   pinMode(buzz, OUTPUT);
+  pinMode(vibration_Sensor, INPUT);
 }
 
 void soundSiren(void);
@@ -23,7 +24,7 @@ void loop() {
   }
 }
 
-void soundSiren(void) {
+void soundSiren() {
   for (int i = 3; i <= 11; i += 2)
     digitalWrite(i, HIGH);
 
